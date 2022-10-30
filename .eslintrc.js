@@ -7,14 +7,14 @@ module.exports = {
 	},
 	rules: {
 		"no-console": "error",
-		"quotes": ["error", "double"],
+		quotes: ["error", "double"],
 	},
 	overrides: [
 		{
 			files: ["*.ts", "*.tsx"],
 			rules: {
 				"react/react-in-jsx-scope": "off",
-				"@typescript-eslint/explicit-function-return-type": ["error"],
+				"@typescript-eslint/explicit-function-return-type": ["off"],
 				"@typescript-eslint/no-unused-vars": ["error"],
 			},
 		},

@@ -6,6 +6,6 @@ const MenuItem = () => {
 			<Text>Hola que hace MENU ITEM !</Text>
 		</View>
 	);
-}
+};
 
 export default MenuItem;
