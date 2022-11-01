@@ -1,25 +1,10 @@
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-
-import Home from "./screens/Home";
-import MenuItem from "./screens/MenuItem";
-
-const Stack = createNativeStackNavigator();
+import { MainNavigator } from "../config/navigator";
 
 const App = () => {
 	return (
 		<NavigationContainer>
-			<Stack.Navigator initialRouteName="Home">
-				<Stack.Screen name="Home" component={Home} />
-				<Stack.Screen
-					name="MenuItem"
-					component={MenuItem}
-					options={{
-						presentation: "modal",
-						headerShown: false,
-					}}
-				/>
-			</Stack.Navigator>
+			<MainNavigator />
 		</NavigationContainer>
 	);
 };

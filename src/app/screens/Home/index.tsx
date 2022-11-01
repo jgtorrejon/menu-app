@@ -1,4 +1,4 @@
-import { View, Text, FlatList, StyleSheet } from "react-native";
+import { View, FlatList, StyleSheet } from "react-native";
 import { useQuery } from "@tanstack/react-query";
 import API_ROUTES from "../../../constants/apiRoutes";
 import Loader from "../../components/Loader";
@@ -6,8 +6,10 @@ import Error from "../../components/Error";
 import Menu from "../../components/Menu";
 import { white } from "../../../constants/colors";
 
-const Home = ({ navigation }) => {
-	const { isLoading, error, data } = useQuery(["menu"], () => fetch(API_ROUTES.GET_MENU).then((res) => res.json()));
+const Home = () => {
+	const { isLoading, error, data } = useQuery(["menu"], () =>
+		fetch(API_ROUTES.GET_MENU).then((res) => res.json())
+	);
 
 	if (isLoading) {
 		return <Loader />;
@@ -17,18 +19,13 @@ const Home = ({ navigation }) => {
 		return <Error />;
 	}
 
-	const goToMenuItem = (): void => {
-		navigation.navigate("MenuItem");
-	};
-
-	const renderItem = ({ item }) => <Menu {...item} />;
-
 	return (
 		<View style={styles.container}>
 			<FlatList
 				data={data.menus}
-				renderItem={renderItem}
+				renderItem={({ item }) => <Menu menu={item} />}
 				keyExtractor={(item) => `menu-${item.name}`}
+				showsVerticalScrollIndicator={false}
 			/>
 		</View>
 	);
@@ -39,6 +36,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: "center",
 		backgroundColor: white,
+		paddingBottom: 15,
 	},
 });
 
