@@ -2,7 +2,7 @@
   "expo": {
     "name": "menu-app",
     "slug": "menu-app",
-		"owner": "joelcho",
+    "owner": "joelcho",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -19,16 +19,23 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.joelcho.menuapp"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.joelcho.menuapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "3ed4c1fb-d856-4b1f-87f1-910680425a39"
+      }
     }
   }
 }

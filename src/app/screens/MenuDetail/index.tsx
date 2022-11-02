@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, Image } from "react-native";
 import { useRoute, RouteProp } from "@react-navigation/native";
 import { RootStackParamsList } from "../../../config/navigator";
+import CustomImage from "../../components/CustomImage";
 import { white } from "../../../constants/colors";
 
 type MenuDetailRoute = RouteProp<RootStackParamsList, "MenuDetail">;
@@ -12,7 +13,7 @@ const MenuDetail = () => {
 
 	return (
 		<View style={styles.container}>
-			<Image source={{ uri: item.url }} style={styles.image} />
+			<CustomImage path={item.url} imageSize={styles.image} />
 			<Text style={styles.title}>{item.name}</Text>
 			<View style={styles.priceContainer}>
 				<Text style={styles.priceLabel}>$ {item.price}</Text>
@@ -38,6 +39,7 @@ const styles = StyleSheet.create({
 		marginTop: 48,
 		fontWeight: "700",
 		fontSize: 24,
+		textAlign: "center",
 	},
 	priceContainer: {
 		marginVertical: 21,

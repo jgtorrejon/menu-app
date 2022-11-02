@@ -1,6 +1,7 @@
-import { View, Text, StyleSheet, Image, TouchableHighlight } from "react-native";
+import { View, Text, StyleSheet, TouchableHighlight } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import MenuItemType from "../../../interfaces/menuItemInterface";
+import CustomImage from "../CustomImage";
 import { gray } from "../../../constants/colors";
 
 interface MenuItemProps {
@@ -17,7 +18,11 @@ const MenuItem = ({ item }: MenuItemProps) => {
 	return (
 		<TouchableHighlight onPress={goToDetail} underlayColor={gray}>
 			<View style={styles.container}>
-				<Image source={{ uri: item.url }} style={styles.image} />
+				<CustomImage
+					path={item.url}
+					imageSize={styles.imageSize}
+					imageStyle={styles.imageStyle}
+				/>
 				<Text style={styles.name}>{item.name}</Text>
 			</View>
 		</TouchableHighlight>
@@ -35,14 +40,16 @@ const styles = StyleSheet.create({
 		width: 160,
 		height: 160,
 	},
-	image: {
+	imageSize: {
 		width: 100,
 		height: 100,
+	},
+	imageStyle: {
 		resizeMode: "contain",
 		marginHorizontal: 30,
 	},
 	name: {
-		marginTop: 26,
+		marginTop: 20,
 		marginBottom: 26,
 		textAlign: "center",
 	},
